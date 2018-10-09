@@ -8,7 +8,7 @@ use App\Footballfan;
 
 class FootballFansController extends Controller
 {
-    public function getChart()
+    public function geoChart()
     {
         $lava = new Lavacharts;
         $fans = $lava->DataTable();
@@ -20,6 +20,7 @@ class FootballFansController extends Controller
              ->addRows($value);
              
         $lava->GeoChart('Football Fans', $fans);
-        
+       
+        return view('geochart', compact('lava'));
     }
 }
